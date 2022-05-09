@@ -1,0 +1,55 @@
+<div class="page-container">
+  <div class="cards-container">
+    <ng-container *ngFor="let card of cards">
+      <div
+        class="memory-card"
+        (click)="clickedCard(card)"
+        [ngClass]="{ 'card-disabled': card.disabled }"
+      >
+        <ng-container *ngIf="cardVisible(card.id); else notVisible">
+          <img
+            src="assets/memory/{{ card.url }}"
+            draggable="false"
+            class="memory-card-img"
+          />
+        </ng-container>
+        <ng-template #notVisible>
+          <div class="not-visible-body"></div>
+        </ng-template>
+      </div>
+    </ng-container>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="connectToObs()">
+    DO OBS
+  </button>
+  <button mat-raised-button color="primary" (click)="testAzureFunction()">
+    testAzureFunction
+  </button>
+  <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+</div>
+<!-- 
+<div class="intro-container" *ngIf="showIntro">
+  <deg-info-overlay
+    [title]="'Hold deg oppdatert'"
+    [imageUrl]="'assets/design/people3.jpg'"
+    [startButtonLabel]="'Kom med det!'"
+    (startEE)="closeIntro()"
+    [buttonColor]="'red'"
+  >
+    Vi verdsetter at våre ansatte holder seg oppdatert på ny teknologi. Du skal
+    nå ta en sertifisering! Lykke til 😃
+  </deg-info-overlay>
+</div>
+
+<deg-victory
+  (closedEE)="gotoNextTask()"
+  [effectLines]="true"
+  [title]="'Hurra!'"
+  *ngIf="showOutro"
+  [outroTitle]="'Gratulerer!'"
+  [outroColor]="'red'"
+>
+  Vi vil alltid ligge i front på ny teknologi og setter av mye ressurser for at
+  våre ansatte kan oppdatere seg på siste nytt.
+</deg-victory> -->
