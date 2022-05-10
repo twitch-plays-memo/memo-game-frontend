@@ -19,8 +19,10 @@
   width: 100%;
   height: auto;
   padding: 5px;
+  padding-top: 5rem;
   .memory-card {
-    --cardWidth: 80px;
+    --cardWidth: 180px;
+    // --cardWidth: 50px;
     width: var(--cardWidth);
     height: calc(var(--cardWidth) * 1.618);
     margin: 5px;
@@ -34,8 +36,6 @@
     background: #ff5f63;
 
     user-select: none;
-
-    cursor: pointer;
 
     .memory-card-img {
       max-width: calc(var(--cardWidth) - 10px);
@@ -53,6 +53,24 @@
       // background-image: url('./../../assets/design/memory.jpg');
       background-size: cover;
       background-position: center center;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 8rem;
+      // font-size: 2rem;
+      color: white;
     }
   }
+}
+
+.button {
+  margin: 10px;
+}
+
+.title {
+  font-size: 10rem;
+  line-height: 5rem;
+  padding: 10rem;
+  color: white;
 }

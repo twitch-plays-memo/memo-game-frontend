@@ -1,11 +1,8 @@
 <div class="page-container">
-  <div class="cards-container">
+  <h1 class="title" *ngIf="victory">🎉 We won! 🎉</h1>
+  <div class="cards-container" *ngIf="!victory">
     <ng-container *ngFor="let card of cards">
-      <div
-        class="memory-card"
-        (click)="clickedCard(card)"
-        [ngClass]="{ 'card-disabled': card.disabled }"
-      >
+      <div class="memory-card" [ngClass]="{ 'card-disabled': card.disabled }">
         <ng-container *ngIf="cardVisible(card.id); else notVisible">
           <img
             src="assets/memory/{{ card.url }}"
@@ -14,19 +11,36 @@
           />
         </ng-container>
         <ng-template #notVisible>
-          <div class="not-visible-body"></div>
+          <div class="not-visible-body">{{ card.votes }}</div>
         </ng-template>
       </div>
     </ng-container>
   </div>
 
-  <button mat-raised-button color="primary" (click)="connectToObs()">
-    DO OBS
+  <button
+    mat-raised-button
+    color="primary"
+    class="button"
+    (click)="startGame()"
+  >
+    startGame
   </button>
-  <button mat-raised-button color="primary" (click)="testAzureFunction()">
+  <button mat-raised-button color="primary" class="button" (click)="endGame()">
+    endGame
+  </button>
+  <!-- <button mat-raised-button color="primary" (click)="testAzureFunction()">
     testAzureFunction
   </button>
-  <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+  <button mat-raised-button color="primary" (click)="loadGameText()">
+    loadGameText
+  </button>
+  <button mat-raised-button color="primary" (click)="simulateVotes()">
+    simulateVotes
+  </button>
+  <button mat-raised-button color="primary" (click)="updateDbGameData()">
+    updateDbGameData
+  </button>
+  <mat-slider min="1" max="100" step="1" value="50"></mat-slider> -->
 </div>
 <!-- 
 <div class="intro-container" *ngIf="showIntro">
